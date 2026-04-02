@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,44 +16,188 @@
     --accent: #4f98a3;
     --accent-glow: rgba(79,152,163,0.12);
     --radius: 14px;
+    --font-body: 'Inter', -apple-system, sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-  body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; font-size: 16px; line-height: 1.7; min-height: 100dvh; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100dvh;
+  }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  header { border-bottom: 1px solid var(--border); padding: 32px 0 28px; text-align: center; }
-  .logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px; }
-  .logo-icon { width: 40px; height: 40px; background: var(--accent-glow); border: 1px solid rgba(79,152,163,0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+
+  /* HEADER */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0 24px;
+    text-align: center;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .logo-icon {
+    width: 40px; height: 40px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(79,152,163,0.3);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
   .logo-icon svg { width: 22px; height: 22px; }
-  .logo-name { font-size: 20px; font-weight: 700; color: var(--text); }
-  .badge { display: inline-block; background: var(--accent-glow); border: 1px solid rgba(79,152,163,0.3); color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; margin-bottom: 14px; }
-  header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; color: #fff; }
-  header p { color: var(--muted); font-size: 14px; }
-  .container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+  .logo-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.5px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent-glow);
+    border: 1px solid rgba(79,152,163,0.3);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  header p {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  /* LAYOUT */
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
   main { padding: 48px 0 80px; }
+
+  /* SECTION */
   section { margin-bottom: 40px; }
-  h2 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-  h2 .icon { width: 32px; height: 32px; background: var(--surface2); border: 1px solid var(--border); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 15px; }
+  h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2 .icon {
+    width: 32px; height: 32px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 15px;
+  }
   p { color: var(--muted); font-size: 15px; margin-bottom: 12px; max-width: 72ch; }
   p:last-child { margin-bottom: 0; }
-  ul { color: var(--muted); font-size: 15px; padding-left: 20px; line-height: 2; }
-  .highlight { background: var(--accent-glow); border: 1px solid rgba(79,152,163,0.25); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 14px; }
-  .highlight p { color: #c6dde0; margin: 0; font-size: 14px; }
-  .perm-grid { display: grid; gap: 12px; }
-  .perm-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
-  .perm-card-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 10px; }
-  .perm-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--accent-glow); border: 1px solid rgba(79,152,163,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; }
+
+  /* PERMISSION CARD */
+  .perm-grid {
+    display: grid;
+    gap: 12px;
+  }
+  .perm-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .perm-card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+  .perm-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(79,152,163,0.25);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
   .perm-title { font-size: 15px; font-weight: 700; color: #fff; line-height: 1.3; }
   .perm-sub { font-size: 12px; color: var(--faint); font-family: monospace; margin-top: 2px; }
   .perm-body { font-size: 14px; color: var(--muted); line-height: 1.6; }
-  .optional-tag { display: inline-flex; align-items: center; gap: 5px; background: rgba(79,152,163,0.08); border: 1px solid rgba(79,152,163,0.2); color: var(--accent); font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; margin-top: 10px; }
-  .required-tag { display: inline-flex; align-items: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; margin-top: 10px; }
+  .optional-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(79,152,163,0.08);
+    border: 1px solid rgba(79,152,163,0.2);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-top: 10px;
+  }
+  .required-tag {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-top: 10px;
+  }
+
+  /* HIGHLIGHT BOX */
+  .highlight {
+    background: var(--accent-glow);
+    border: 1px solid rgba(79,152,163,0.25);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .highlight p { color: #c6dde0; margin: 0; font-size: 14px; }
+
+  /* DIVIDER */
   hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
-  footer { border-top: 1px solid var(--border); padding: 28px 0; text-align: center; color: var(--faint); font-size: 13px; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 0;
+    text-align: center;
+    color: var(--faint);
+    font-size: 13px;
+  }
   footer a { color: var(--muted); }
-  .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-top: 8px; }
-  @media (max-width: 600px) { header h1 { font-size: 22px; } h2 { font-size: 15px; } }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 22px; }
+    h2 { font-size: 15px; }
+  }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -80,12 +224,20 @@
 <main>
 <div class="container">
 
+  <!-- TL;DR -->
   <section>
     <div class="highlight">
-      <p><strong style="color:#fff;">The short version:</strong> Kora Launcher is built local-first. Your app usage stats, flagged apps, daily limits, to-do tasks, and intentions <strong>stay entirely on your device</strong>. Kora does not collect, upload, or sell any personal data. The only outbound network requests are font loading (Google Fonts) and update checks. No accounts. No analytics. No tracking.</p>
+      <p>
+        <strong style="color:#fff;">The short version:</strong> Kora Launcher is built local-first.
+        Your app usage stats, flagged apps, daily limits, to-do tasks, and intentions
+        <strong>stay entirely on your device</strong>. Kora does not collect, upload, or sell any personal data.
+        The only outbound network requests are font loading (Google Fonts) and update checks.
+        No accounts. No analytics. No tracking.
+      </p>
     </div>
   </section>
 
+  <!-- WHO WE ARE -->
   <section>
     <h2><span class="icon">👤</span> About this app</h2>
     <p>Kora Launcher ("Kora", "we", "us") is an Android home screen replacement app developed by Pownkumar. It is available on the Google Play Store under the package name <code style="color:var(--accent);font-size:13px;">org.korelium.koralauncher</code>.</p>
@@ -93,10 +245,11 @@
     <p>Contact: <a href="mailto:iampownkumar@gmail.com">iampownkumar@gmail.com</a></p>
   </section>
 
+  <!-- DATA WE DO NOT COLLECT -->
   <section>
     <h2><span class="icon">🔒</span> Data Kora does not collect</h2>
     <p>Kora does not collect, store on any server, or share any of the following:</p>
-    <ul>
+    <ul style="color:var(--muted);font-size:15px;padding-left:20px;line-height:2;">
       <li>Your name, email address, or any account information</li>
       <li>Your location</li>
       <li>Your contacts or call history</li>
@@ -105,14 +258,15 @@
       <li>Your flagged apps, to-do list, goals, or daily intentions</li>
       <li>Any behavioural, advertising, or analytics data</li>
     </ul>
-    <p style="margin-top:14px;">All app data is stored locally on your device and is never transmitted to any server owned or operated by Kora.</p>
+    <p style="margin-top:14px;">All app data is stored locally on your device using on-device storage only and is never transmitted to any server owned or operated by Kora.</p>
   </section>
 
   <hr>
 
+  <!-- PERMISSIONS -->
   <section>
     <h2><span class="icon">🔑</span> Permissions and why we use them</h2>
-    <p>Below is every permission Kora requests and a plain-language explanation of why it is needed.</p>
+    <p>Below is every permission Kora requests and a plain-language explanation of exactly why it is needed.</p>
     <div class="perm-grid">
 
       <div class="perm-card">
@@ -124,7 +278,7 @@
           </div>
         </div>
         <div class="perm-body">
-          Allows Kora to read app usage statistics from Android. This powers the <strong style="color:#d0d0d4;">Usage Dashboard</strong> and the <strong style="color:#d0d0d4;">Rising Tide daily limit</strong> system, which tracks your progress against the time budgets you set per app.<br><br>
+          Allows Kora to read app usage statistics from Android. This powers the <strong style="color:#d0d0d4;">Usage Dashboard</strong> — your screen time breakdown — and the <strong style="color:#d0d0d4;">Rising Tide daily limit</strong> system, which tracks your progress against the budgets you set per app.<br><br>
           This data is read from the Android system and processed entirely on your device. It is never uploaded, logged to a server, or shared with anyone.
         </div>
         <span class="optional-tag">✦ Optional feature</span>
@@ -139,9 +293,9 @@
           </div>
         </div>
         <div class="perm-body">
-          Allows Kora to detect when you open a different app on your device. This is the technical foundation of the <strong style="color:#d0d0d4;">Rising Tide focus system</strong>, which shows a brief interception screen before a distracting app opens.<br><br>
-          <strong style="color:#d0d0d4;">Kora uses the Accessibility Service only for this one purpose:</strong> detecting app foreground transitions for apps you have personally flagged. It does not read screen content, keystrokes, passwords, or any sensitive data. It is not used for advertising, analytics, or any purpose other than Rising Tide interception.<br><br>
-          This permission is optional. If you do not enable it, the rest of Kora — launcher, app drawer, to-do list, and usage dashboard — continues to work normally.
+          Allows Kora to detect when you open a different app on your device. This is the technical foundation of the <strong style="color:#d0d0d4;">Rising Tide focus system</strong>, which shows a brief interception screen before a distracting app opens — giving you a moment of intentional pause before continuing.<br><br>
+          <strong style="color:#d0d0d4;">Kora uses the Accessibility Service only for this one purpose:</strong> detecting app foreground transitions for apps you have personally flagged. It does not read screen content, keystrokes, passwords, or any sensitive data. It does not use Accessibility for advertising, analytics, or any purpose other than Rising Tide interception.<br><br>
+          This permission is optional. If you do not enable it, the rest of Kora — including the launcher, app drawer, to-do list, and usage dashboard — continues to work normally.
         </div>
         <span class="optional-tag">✦ Optional feature</span>
       </div>
@@ -155,7 +309,7 @@
           </div>
         </div>
         <div class="perm-body">
-          Declares Kora as a home screen to Android. This allows you to set Kora as your default launcher, replacing your phone's stock home screen. No personal data is involved in this declaration.
+          Declares Kora as a home screen to Android. This allows you to set Kora as your default launcher so it replaces your phone's stock home screen. No personal data is involved in this declaration.
         </div>
         <span class="required-tag">Core feature</span>
       </div>
@@ -199,12 +353,26 @@
         <div class="perm-body">
           Used for two purposes only:
           <ul style="margin-top:8px;padding-left:18px;line-height:1.9;">
-            <li><strong style="color:#d0d0d4;">Font loading:</strong> Kora loads a typeface from Google Fonts for the launcher UI.</li>
-            <li><strong style="color:#d0d0d4;">Update checks:</strong> Kora checks for app updates from the Play Store.</li>
+            <li><strong style="color:#d0d0d4;">Font loading:</strong> Kora loads a clean sans-serif typeface from Google Fonts (fonts.googleapis.com) for the launcher UI.</li>
+            <li><strong style="color:#d0d0d4;">Update checks:</strong> Kora checks for app updates from the Play Store to keep you on the latest version.</li>
           </ul>
           <br>No personal data, usage stats, or identifying information is included in these requests.
         </div>
         <span class="required-tag">Core feature</span>
+      </div>
+
+      <div class="perm-card">
+        <div class="perm-card-top">
+          <div class="perm-icon">🛡️</div>
+          <div>
+            <div class="perm-title">Device Admin</div>
+            <div class="perm-sub">BIND_DEVICE_ADMIN</div>
+          </div>
+        </div>
+        <div class="perm-body">
+          Used to enable the <strong style="color:#d0d0d4;">"Double Tap to Lock"</strong> convenience feature, which allows you to lock your screen directly from the launcher without pressing the physical power button. This is a user-activated, on-device feature only. No remote management or enterprise control is involved.
+        </div>
+        <span class="optional-tag">✦ Optional feature</span>
       </div>
 
     </div>
@@ -212,38 +380,43 @@
 
   <hr>
 
+  <!-- THIRD PARTY -->
   <section>
     <h2><span class="icon">🔗</span> Third-party services</h2>
     <p>Kora uses the following third-party services in limited ways:</p>
-    <ul>
-      <li><strong style="color:#d0d0d4;">Google Fonts</strong> — Font loading for the launcher UI. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
-      <li><strong style="color:#d0d0d4;">Google Play</strong> — Standard in-app update availability check. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+    <ul style="color:var(--muted);font-size:15px;padding-left:20px;line-height:2.1;">
+      <li><strong style="color:#d0d0d4;">Google Fonts (fonts.googleapis.com)</strong> — Font file loading for the launcher UI. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+      <li><strong style="color:#d0d0d4;">Google Play (in-app update check)</strong> — Standard update availability check. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
     </ul>
     <p style="margin-top:12px;">Kora does not use Firebase, Crashlytics, AdMob, Facebook SDK, or any analytics or advertising SDK.</p>
   </section>
 
+  <!-- DATA SAFETY -->
   <section>
     <h2><span class="icon">🗄️</span> Data safety</h2>
     <p>All user data created in Kora — including your to-do tasks, daily intentions, flagged apps, daily limits, and app usage stats — is stored exclusively on your device using local storage (Hive / SharedPreferences).</p>
     <p>This data is not backed up to any cloud service by Kora, not transmitted to any Kora server, and not shared with any third party.</p>
-    <p>When you uninstall Kora, all locally stored data is deleted by Android as part of the standard uninstall process.</p>
+    <p>When you uninstall Kora, all locally stored data is deleted by Android as part of the standard app uninstall process.</p>
   </section>
 
+  <!-- CHILDREN -->
   <section>
     <h2><span class="icon">👶</span> Children's privacy</h2>
-    <p>Kora Launcher is not directed at children under the age of 13. We do not knowingly collect any personal information from children. If you believe your child has provided information to this app, please contact us and we will take steps to address it.</p>
+    <p>Kora Launcher is not directed at children under the age of 13. We do not knowingly collect any personal information from children. If you believe your child has provided information to this app, please contact us and we will take steps to remove it.</p>
   </section>
 
+  <!-- CHANGES -->
   <section>
     <h2><span class="icon">📝</span> Changes to this policy</h2>
-    <p>If we make any material changes to this Privacy Policy, we will update the "Last updated" date at the top of this page. Continued use of Kora Launcher after any changes constitutes your acceptance of the updated policy.</p>
+    <p>If we make any material changes to this Privacy Policy, we will update the "Last updated" date at the top of this page. Continued use of Kora Launcher after any changes constitutes your acceptance of the updated policy. We encourage you to review this page periodically.</p>
   </section>
 
+  <!-- CONTACT -->
   <section>
     <h2><span class="icon">✉️</span> Contact</h2>
     <p>If you have any questions about this Privacy Policy or Kora's data practices, please contact:</p>
-    <div class="contact-box">
-      <p style="color:#d0d0d4;margin:0;"><strong>Pownkumar</strong><br>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-top:8px;">
+      <p style="margin:0;color:#d0d0d4;"><strong>Pownkumar</strong><br>
       Developer, Kora Launcher<br>
       📧 <a href="mailto:iampownkumar@gmail.com">iampownkumar@gmail.com</a><br>
       🌐 <a href="https://korelium.org" target="_blank" rel="noopener">korelium.org</a></p>
@@ -255,7 +428,7 @@
 
 <footer>
   <div class="container">
-    <p>Kora Launcher &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Effective April 2, 2026</p>
+    <p>Kora Launcher · Privacy Policy · Effective April 2, 2026</p>
     <p style="margin-top:6px;"><a href="https://korelium.org" target="_blank" rel="noopener">korelium.org</a></p>
   </div>
 </footer>
